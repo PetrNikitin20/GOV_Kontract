@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Демонстрация системы интеллектуального прогнозирования исполнения государственных контрактов">
+  <title>Интеллектуальное прогнозирование исполнения государственных контрактов</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero__inner">
+    <div class="brand">ФИНАНСОВЫЙ УНИВЕРСИТЕТ · КАФЕДРА ИСКУССТВЕННОГО ИНТЕЛЛЕКТА</div>
+    <h1>Интеллектуальное прогнозирование исполнения государственных контрактов</h1>
+    <p class="lead">Интерактивная демонстрация программного комплекса оценки рисков, сроков и стоимости исполнения контрактов на основе методов машинного обучения.</p>
+    <div class="hero__chips"><span>ЕИС</span><span>РНП</span><span>СПАРК</span><span>ML / XAI</span></div>
+  </div>
+</header>
+<main class="layout">
+  <aside class="sidebar">
+    <section class="panel sticky">
+      <h2>Фильтры</h2>
+      <label>Вероятность выполнения <strong id="probLabel">10–95%</strong></label>
+      <div class="dual"><input id="probMin" type="range" min="0" max="100" value="10"><input id="probMax" type="range" min="0" max="100" value="95"></div>
+      <label>Цена контракта, млн ₽ <strong id="priceLabel">1–50</strong></label>
+      <div class="dual"><input id="priceMin" type="range" min="1" max="50" value="1"><input id="priceMax" type="range" min="1" max="50" value="50"></div>
+      <label for="status">Статус</label><select id="status"><option value="">Все статусы</option></select>
+      <label for="risk">Уровень риска</label><select id="risk"><option value="">Все уровни</option></select>
+      <label for="customer">Заказчик</label><select id="customer"><option value="">Все заказчики</option></select>
+      <button id="resetBtn" class="btn secondary">Сбросить фильтры</button>
+      <div class="note"><b>Важно:</b> данные в веб-демо синтетические. Интерфейс воспроизводит исследовательскую логику исходного Streamlit-приложения.</div>
+    </section>
+  </aside>
+  <section class="content">
+    <section class="research panel research-grid">
+      <div><span class="eyebrow">НИР · регистрационный № 224020100508-4</span><h2>О проекте</h2><p>Цель — разработка методологии и программного комплекса для интеллектуального прогнозирования исполнения государственных контрактов и поддержки своевременных управленческих решений.</p></div>
+      <div class="research-card"><b>Исследовательский набор</b><strong>83 184</strong><span>объекта</span><strong>192</strong><span>признака</span></div>
+      <div class="research-card"><b>Ключевые задачи</b><ul><li>риск выбора недобросовестного подрядчика;</li><li>риск нарушения срока;</li><li>прогноз срока выполнения;</li><li>прогноз стоимости.</li></ul></div>
+    </section>
+    <section><h2 class="section-title">Ключевые показатели</h2><div id="metrics" class="metrics"></div></section>
+    <section class="grid2">
+      <div class="panel"><h2>Распределение риска</h2><div id="riskChart" class="bars"></div></div>
+      <div class="panel"><h2>Вероятность выполнения по статусам</h2><div id="statusChart" class="bars"></div></div>
+    </section>
+    <section class="panel">
+      <div class="section-head"><div><span class="eyebrow">Интерактивный реестр</span><h2>Контракты</h2></div><div class="search-wrap"><input id="search" type="search" placeholder="Поиск по ID, предмету, заказчику…"></div></div>
+      <div class="table-wrap"><table><thead><tr><th>ID</th><th>Контракт</th><th>Заказчик</th><th>Цена</th><th>Статус</th><th>Вероятность</th><th>Риск</th><th></th></tr></thead><tbody id="contractsBody"></tbody></table></div>
+      <div class="pagination"><button id="prevPage" class="btn secondary">← Назад</button><span id="pageInfo"></span><button id="nextPage" class="btn secondary">Вперёд →</button></div>
+    </section>
+    <section class="panel methodology">
+      <span class="eyebrow">Методология</span><h2>Схема интеллектуального контроля</h2>
+      <div class="flow"><div><b>1. Данные</b><span>ЕИС · РНП · СПАРК</span></div><i>→</i><div><b>2. Подготовка</b><span>очистка · признаки · объединение</span></div><i>→</i><div><b>3. ML-модели</b><span>классификация · регрессия</span></div><i>→</i><div><b>4. Интерпретация</b><span>важность признаков · риск</span></div><i>→</i><div><b>5. Решение</b><span>управленческая поддержка</span></div></div>
+    </section>
+  </section>
+</main>
+<dialog id="contractDialog"><button id="closeDialog" class="close" aria-label="Закрыть">×</button><div id="dialogContent"></div></dialog>
+<footer>Финансовый университет при Правительстве Российской Федерации · демонстрационный интерфейс НИР</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
